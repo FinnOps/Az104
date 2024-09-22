@@ -18,17 +18,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 2: Login to Azure
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_1ea43116e81a4136a2563fea539afc3f }}
-
-      # Step 3: Deploy static files (HTML, CSS, JS, etc.)
+      # Step 2: Deploy static files (HTML, CSS, JS, etc.) to Azure Web App
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'az'  # Replace with your Web App name
-          package: './test.html'  # Deploy all static files from the repository root
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_1ea43116e81a4136a2563fea539afc3f }}
+          package: './'  # Deploy all static files from the repository root
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2F3045BAE0B243FE97E170693A3E1634 }}
