@@ -24,5 +24,5 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'az'  # Replace with your Web App name
-          package: 'test.html'  # Deploy all static files from the repository root
+          package: './'  # Deploy all static files from the repository root
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2F3045BAE0B243FE97E170693A3E1634 }}
